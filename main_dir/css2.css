@@ -1,0 +1,162 @@
+body {
+    background-color: #9CFF9C;
+    font-family:'Arial Black';
+}
+  
+#content1 {
+    background-image:url("fons.gif");
+    height:640px;
+    background-repeat:no-repeat;
+    background-position: 80% ;
+    width:1200px;
+    margin:auto;
+}
+  
+#Analog1 {
+    margin-bottom:290px; 
+}
+
+#Digital1, #Analog1 { 
+    height: 150px;
+}
+  
+#Digital1 div, #Analog1 div {
+    float: left;
+    width: 150px;
+    height: 150px;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+  
+#Digital1 div:first-child, #Analog1 div:first-child {
+    margin-left: 150px;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+  
+#Ending1 {  
+    position: absolute;
+    left: 60px;
+    top: 0;
+    width: 90%;
+    text-align: center;
+    font-size: 18px;
+    height: 90%;
+    background: #9CFF9C;
+    background-image:url("end.gif");
+    background-repeat:no-repeat;
+    background-position: center top;
+}
+
+#again1{
+    margin-top: 10%;
+    margin-left: 50%;
+    color: white;
+    background-color: #00cc66;
+    border: 4px solid #006633;
+    padding: 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#again1:hover{
+    background-color:#006633;
+}
+
+.tooltip{ 
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    border: 4px solid #006633;
+    width:20px;
+    text-align:center;
+    border-radius: 48%;
+    color:#006633;
+}
+
+.tooltip .tooltiptext {
+    font-size: 15px;
+    font-family: 'Arial Black';
+    visibility: hidden;
+    width: 250px;
+    background-color: white;
+    color: #006633;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    top: 125%;
+    left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+  
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 25%;
+    border-width: 5px;
+    border-style: solid;
+    border-color:  transparent transparent white transparent ;
+}
+  
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+      
+.overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 20;
+    top: 0;
+    left: 0;
+    background-color: #006633;
+    opacity:0.9;
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+  
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+  
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #ccc;
+    display: block;
+    transition: 0.3s;
+}
+  
+.overlay a:hover, .overlay a:focus {
+    color: white;
+}
+  
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 70px;
+    font-size: 60px;
+}
+  
+span{
+    font-size:20px;
+    cursor:pointer;
+    padding:20px; 
+    position:absolute; 
+    top:0px;
+    left:0px;
+    color:white;
+    background-color:#006633;
+    border-bottom-right-radius:20px;
+}
+  
