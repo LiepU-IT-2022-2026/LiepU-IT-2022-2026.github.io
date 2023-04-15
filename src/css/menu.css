@@ -1,0 +1,26 @@
+/*
+    Katram spēles tipam kategorizēsim CSS
+
+    LongPriekšmeti = ShortPriekšmeti:
+    Matemātika = mat
+    Latviešu valoda = lv
+    (... papildināt vēlāk ...)
+
+    [uzdevums] = kārtas numurs
+
+    pakāpe = array{
+        vnk => vienkāršs;
+        med => vidēji grūts;
+        hard => grūts;
+    }
+
+    tips =  array{
+        DragAndDrop;
+        InputField;
+        Button == InteractiveButton; 
+    }
+
+    Nosaukumus veidosim šādi:
+        ShortPriekšmets_[uzdevums]_pakāpe[]_tips[].css
+    Ja vajadzēs papildus css, tos liksim mapē ar tādu pašu nosaukuma principu
+*/
