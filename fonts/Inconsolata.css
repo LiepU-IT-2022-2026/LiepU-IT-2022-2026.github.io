@@ -1,0 +1,91 @@
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 100;
+    src: url('./Inconsolata/Inconsolata-Thin.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 200;
+    src: url('./Inconsolata/Inconsolata-ExtraLight.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 300;
+    src: url('./Inconsolata/Inconsolata-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./Inconsolata/Inconsolata-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 500;
+    src: url('./Inconsolata/Inconsolata-Medium.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 600;
+    src: url('./Inconsolata/Inconsolata-SemiBold.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: normal;
+    font-weight: 700;
+    src: url('./Inconsolata/Inconsolata-Bold.ttf') format('truetype');
+}
+
+/* ITALIC */
+/*
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: italic;
+    font-weight: 100;
+    src: url('./Inconsolata/Inconsolata-ThinItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: italic;
+    font-weight: 200;
+    src: url('./Inconsolata/Inconsolata-ExtraLightItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: italic;
+    font-weight: 300;
+    src: url('./Inconsolata/Inconsolata-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: italic;
+    font-weight: 400;
+    src: url('./Inconsolata/Inconsolata-MediumItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: italic;
+    font-weight: 500;
+    src: url('./Inconsolata/Inconsolata-MediumItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: italic;
+    font-weight: 600;
+    src: url('./Inconsolata/Inconsolata-SemiBoldItalic.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Inconsolata';
+    font-style: italic;
+    font-weight: 700;
+    src: url('./Inconsolata/Inconsolata-BoldItalic.ttf') format('truetype');
+}
+*/
