@@ -1,0 +1,1 @@
+Šeit būs individuāli VISI UZDEVUMI

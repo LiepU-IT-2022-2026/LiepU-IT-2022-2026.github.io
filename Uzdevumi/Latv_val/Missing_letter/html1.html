@@ -1,0 +1,89 @@
+<!--
+  Alfabēts - Dots alfabēts, daži RANDOM burti izņemti no tā un atlikti malā. Spēlētāja uzdevums ielikt tos pareizās vietās.
+  
+  Trukstosie - random burti, kas stav mala un kuri ir jaaizvelk pareizaja vieta alfabeta
+  Alfabets - alfabets ar trukstosajiem burtiem 
+-->
+
+<!doctype html>
+<html>
+  <head>
+    
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="css1.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="html.js"></script>
+
+<div id="alphabet">
+  <!-- te bus alfabets  -->
+</div>
+<div id="missing-letters">
+  <!-- te bus trukstosie burti -->
+</div>
+
+<!-- alfabeta bildes -->
+<img id="a" src="bildes1/a.jpg" alt="A">
+<img id="ā" src="bildes1/ā.jpg" alt="Ā">
+<img id="b" src="bildes1/b.jpg" alt="B">
+<img id="c" src="bildes1/c.jpg" alt="C">
+<img id="č" src="bildes1/č.jpg" alt="Č">
+<img id="d" src="bildes1/d.jpg" alt="D">
+<img id="e" src="bildes1/e.jpg" alt="E">
+<img id="ē" src="bildes1/ē.jpg" alt="Ē">
+<img id="f" src="bildes1/f.jpg" alt="F">
+<img id="g" src="bildes1/g.jpg" alt="G">
+<img id="ģ" src="bildes1/ģ.jpg" alt="Ģ">
+<img id="h" src="bildes1/h.jpg" alt="H">
+<img id="i" src="bildes1/i.jpg" alt="I">
+<img id="ī" src="bildes1/ī.jpg" alt="Ī">
+<img id="j" src="bildes1/j.jpg" alt="J">
+<img id="k" src="bildes1/k.jpg" alt="K">
+<img id="ķ" src="bildes1/ķ.jpg" alt="Ķ">
+<img id="l" src="bildes1/l.jpg" alt="L">
+<img id="ļ" src="bildes1/ļ.jpg" alt="Ļ">
+<img id="m" src="bildes1/m.jpg" alt="M">
+<img id="n" src="bildes1/n.jpg" alt="N">
+<img id="ņ" src="bildes1/ņ.jpg" alt="Ņ">
+<img id="o" src="bildes1/o.jpg" alt="O">
+<img id="p" src="bildes1/p.jpg" alt="P">
+<img id="r" src="bildes1/r.jpg" alt="R">
+<img id="s" src="bildes1/s.jpg" alt="S">
+<img id="š" src="bildes1/š.jpg" alt="Š">
+<img id="t" src="bildes1/t.jpg" alt="T">
+<img id="u" src="bildes1/u.jpg" alt="U">
+<img id="ū" src="bildes1/ū.jpg" alt="Ū">
+<img id="v" src="bildes1/v.jpg" alt="V">
+<img id="z" src="bildes1/z.jpg" alt="Z">
+<img id="ž" src="bildes1/ž.jpg" alt="Ž">
+
+</head>
+<body>
+<div id="content">
+  <div id="Trukstosie"> </div>
+  <div id="Alfabets"> </div>
+  <div id="Ending">
+    <button id="again" onclick="start()">Spēlēt vēlreiz</button>
+  </div>
+</div>
+<div class="tooltip">&#8505
+  <span class="tooltiptext">Tavs uzdevums ir ievilkt alfabēta burtus pareizajās vietās.</span>
+</div>
+<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div class="overlay-content">
+    <a href="../../../index.html">Sākums</a>
+  </div>
+</div>
+<span  onclick="openNav()">&#9776;</span>
+<script>
+function openNav() {
+  document.getElementById("myNav").style.height = "100%";
+}
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%";
+}
+</script>
+</body>
+</html>
