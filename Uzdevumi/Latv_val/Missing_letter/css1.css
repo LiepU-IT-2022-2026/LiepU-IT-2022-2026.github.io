@@ -159,7 +159,7 @@ span{
     position:absolute; 
     top:0px;
     left:0px;
-    color:white;
+    color:var(--white-full);
     background-color:var(--project_green);
     border-bottom-right-radius:20px;
 }
