@@ -1,64 +1,111 @@
-$('#Ending').hide();
-correct = 0;
-//$('#Analog').html( '' );
-//$('#Digital').html( '' );
-const alphabet = ['a','ā','b','c','č','d','e','ē','f','g','ģ','h','i','ī','j','k','ķ','l','ļ','m','n','ņ','o','p','r','s','š','t','u','ū','v','z','ž'];
+var correct=0;
+$( start );
 
-let random_burts_array = [];
+function start(){
+  $('#Ending').hide();
+  correct = 0;
+  $('#Trukstosie').html( '' );
+  $('#Alfabets').html( '' );
 
-let missingLetters = [];
+  const alphabet = ['a','ā','b','c','č','d','e','ē','f','g','ģ','h','i','ī','j','k','ķ','l','ļ','m','n','ņ','o','p','r','s','š','t','u','ū','v','z','ž'];
+
+  let random_burts_array = [];
+
+  let missingLetters = [];
 
 
 
-// Izveido funkciju, kas pārkārto masīvu
-function shuffleArray(array) {
-	for (let i = array.length - 1; i > 0; i--) {
-		const j = Math.floor(Math.random() * (i + 1));
-		[array[i], array[j]] = [array[j], array[i]];
-	}
-	return array;
-}
+  // Izveido funkciju, kas pārkārto masīvu
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
 
-// Uzģenerē random burtu indeksu
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
+  // Uzģenerē random burtu indeksu
+  function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
 
-while(random_burts_array.length < 5){
-  rng = getRandomInt(32);
-  if(!random_burts_array.includes(rng)){
-    random_burts_array.push(rng);
+  while(random_burts_array.length < 5){
+    rng = getRandomInt(32);
+    if(!random_burts_array.includes(rng)){
+      random_burts_array.push(rng);
+    }
+  }
+  burts_1 = random_burts_array[0];
+  burts_2 = random_burts_array[1];
+  burts_3 = random_burts_array[2];
+  burts_4 = random_burts_array[3];
+  burts_5 = random_burts_array[4];
+
+  /*
+  console.log(burts_1);
+  console.log(burts_2);
+  console.log(burts_3);
+  console.log(burts_4);
+  console.log(burts_5);
+  */
+
+  // (Laikam) izprintēs visus burtus pareizajās vietās
+  for (let i = 0; i < 5; i++) {
+    missingLetters.push(alphabet[random_burts_array[i]]);
+    console.log(missingLetters[i]);
+  }
+
+  console.log(" ");
+
+  missingLetters = shuffleArray(missingLetters);
+  for (let i = 0; i< 5; i++){
+    console.log(missingLetters[i]);
+  }
+
+  // Izprintē burtus no vienas mapes
+  // Ja burta indekss sakrīt ar kādu no random_burta_indeksu, tad tas burts tiek izprintēts no otras mapes.
+
+  for(let i = 0; i<alphabet.length; i++){
+    // "Ir iespējams optimizēt šo koda daļu, bet man ir kinda šobrīd slinkums" -mAa4a97, 2023.04.18.
+    if(i == random_burts_array[0] || i == random_burts_array[1] || i == random_burts_array[2] || i == random_burts_array[3] || i == random_burts_array[4]){
+      //ievieto random_burtu #Trukstosie div, kā interaktīvu objektu.
+      $('<div></div>').data('burts', alphabet[i]).attr('id','card_'+alphabet[i]).appendTo('#Trukstosie').draggable( {
+        containment: '#content',
+        stack: '#Trukstosie div',
+        cursor: 'move',
+        revert: true
+      } );
+      $('#card_'+alphabet[i]).css("background-image", "url(bildes1/"+alphabet[i]+".jpg)");
+      //ievieto random_burtu #Alfabets div, kā nezināmu burtu pie pārējiem alfabēta burtiem
+      $('<div></div>').data('burts', alphabet[i]).attr('id','cardd_'+alphabet[i]).appendTo('#Alfabets').droppable( {
+        accept: 'Trukstosie div',
+        hoverClass: 'hovered',
+        drop: check
+      });
+      $('#cardd_'+alphabet[i]).css("background-image", "url(bildes2/"+alphabet[i]+".jpg)");
+    } else {
+      $('<div></div>').data('burts', alphabet[i]).attr('id','cardd_'+alphabet[i]).appendTo('#Alfabets');
+      $('#cardd_'+alphabet[i]).css("background-image", "url(bildes1/"+alphabet[i]+".jpg)");
+    }
   }
 }
-burts_1 = random_burts_array[0];
-burts_2 = random_burts_array[1];
-burts_3 = random_burts_array[2];
-burts_4 = random_burts_array[3];
-burts_5 = random_burts_array[4];
 
-/*
-console.log(burts_1);
-console.log(burts_2);
-console.log(burts_3);
-console.log(burts_4);
-console.log(burts_5);
-*/
-
-// (Laikam) izprintēs visus burtus pareizajās vietās
-for (let i = 0; i < 5; i++) {
-  missingLetters.push(alphabet[random_burts_array[i]]);
-  console.log(missingLetters[i]);
+function check(event, ui) {
+  var TrukstosieBurti = $(this).data( 'burts' );
+  var alfabetaBurti = ui.draggable.data( 'burts' );  
+  if (TrukstosieBurti == alfabetaBurti) {
+    ui.draggable.addClass( 'correct' );
+    ui.draggable.draggable( 'disable' );
+    $(this).droppable( 'disable' );
+    ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+    ui.draggable.draggable( 'option', 'revert', false );
+    correct++;
+  }
+  if (correct==5){
+    $('#Ending').show();
+  }
 }
 
-console.log(" ");
-
-missingLetters = shuffleArray(missingLetters);
-for (let i = 0; i< 5; i++){
-  console.log(missingLetters[i]);
-}
-
-// Izprintē burtus no vienas mapes
-// Ja burta indekss sakrīt ar kādu no random_burta_indeksu, tad tas burts tiek izprintēts no otras mapes.
 
 
 
@@ -75,11 +122,7 @@ for (let i = 0; i< 5; i++){
 
 
 
-
-
-
-
-// izprinte alfabetu
+/* izprinte alfabetu
 function generateAlphabet() {
 	//const shuffledAlphabet = shuffleArray(alphabet);
 
@@ -91,10 +134,10 @@ function generateAlphabet() {
     // ieprinte html kodaa
 	for (let i = 0; i < alphabet.length; i++) {
 		const letter = alphabet[i];
-		let imgSrc = letter + '.jpg';
+		let imgSrc = '.bildes1/' + letter + '.jpg';
         // piekarto trukstosos burtus 
 		if (missingLetters.includes(letter)) {
-			imgSrc = './bildes2/missing.jpg';
+			imgSrc = './bildes2/'+ letter +'.jpg';
 		}
 
 		// burtam jauns div
