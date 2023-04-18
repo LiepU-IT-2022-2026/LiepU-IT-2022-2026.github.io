@@ -1,12 +1,18 @@
 $('#Ending').hide();
-//correct = 0;
+correct = 0;
 //$('#Analog').html( '' );
 //$('#Digital').html( '' );
 const alphabet = ['a','ā','b','c','č','d','e','ē','f','g','ģ','h','i','ī','j','k','ķ','l','ļ','m','n','ņ','o','p','r','s','š','t','u','ū','v','z','ž'];
 
+let burts_1 = 0;
+let burts_2 = 0;
+let burts_3 = 0;
+let burts_4 = 0;
+let burts_5 = 0;
+
 let missingLetters = [];
 
-// samaisa alfabetu
+// Izveido funkciju, kas pārkārto masīvu
 function shuffleArray(array) {
 	for (let i = array.length - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1));
@@ -15,9 +21,23 @@ function shuffleArray(array) {
 	return array;
 }
 
+// Uzģenerē random burtu indeksu
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+while(burts_1 != burts_2 != burts_3 != burts_4 != burts_5){
+  burts_1 = getRandomInt(32);
+  burts_2 = getRandomInt(32);
+  burts_3 = getRandomInt(32);
+  burts_4 = getRandomInt(32);
+  burts_5 = getRandomInt(32);
+}
+
+
 // izprinte alfabetu
 function generateAlphabet() {
-	const shuffledAlphabet = shuffleArray(alphabet);
+	//const shuffledAlphabet = shuffleArray(alphabet);
 
 	// nonem 5 burtus un pieliek pie trukst. burtiem
 	for (let i = 0; i < 5; i++) {
@@ -46,10 +66,10 @@ function generateAlphabet() {
 		// Append the image to the div and the div to the alphabet div
 		div.appendChild(img);
 		document.getElementById('alphabet').appendChild(div);
-	}$('#Ending').show();
+	}//$('#Ending').show();
 }
 function check( event, ui ) {
-	var AlfabetsNumber = $(this).data( 'letter' );
+	//var AlfabetsNumber = $(this).data( 'letter' ); Jāpārskata, ko šis dara
 	var TrukstosieNumber = ui.draggable.data( 'letter' );
 	// Ja 5 trūkstošie burti ir ievilkti savās pareizajās pozīcijās => Spēle beidzas
 	if ( TrukstosieNumber==5 ) {
@@ -68,16 +88,6 @@ function check( event, ui ) {
 /*
 paraugspeles kods, ko Inta bija ielikusi moodlaa:
 
-<!doctype html>
-<html>
-<head>
-
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<link rel="stylesheet" type="text/css" href="css3.css">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
 <script type="text/javascript">
 
 var correct=0;
@@ -94,7 +104,9 @@ function start() {
   numbers.sort( function() { return Math.random() - .5 } );
 var change=[];for(var k=0;k<7;k++){change[k]=numbers[k];}
 change.sort( function() { return Math.random() - .5 } );
-  for ( var i=1; i<=7; i++ ) {
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  // ieiliek <div> box katru draggable elementu. ==> Pārveidot uz random burtiem (nevajadzētu būt pārāk sarežģīti)
+  for ( var i=1; i<=5; i++ ) {
     $('<div></div>').data( 'number', change[i-1] ).attr( 'id', 'card'+change[i-1] ).appendTo( '#Analog' ).draggable( {
       containment: '#content',
       stack: '#Analog div',
@@ -102,10 +114,16 @@ change.sort( function() { return Math.random() - .5 } );
       revert: true
 	
     } );
+  // attēlu ievietošana 
 	$('#card'+change[i-1]).css("background-image", "url(a/"+change[i-1]+".png)"); 
 	if(i%2==1){document.getElementById('card'+change[i-1]).style.marginTop = "50px";}
   }
-  for ( var i=1; i<=7; i++ ) {
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  // digital attēlu ģenerēšana, kurā ievieto attiecīgos analogos attēlus random secībā =========>
+  =========> Pārveidot uz funkciju, kas ievieto burtus pareizā secībām, atstājot tukšas vietas
+  trūkstošajiem burtiem //
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  for ( var i=1; i<= shufledAlphabet.length(); i++ ) {
     $('<div></div>').data( 'number', numbers[i-1] ).attr( 'id', 'cardd'+numbers[i-1] ).appendTo( '#Digital' ).droppable( {
       accept: '#Analog div',
       hoverClass: 'hovered',
@@ -116,6 +134,8 @@ change.sort( function() { return Math.random() - .5 } );
   }
 
 }
+
+// Pārbauda, vai iepriekšējā funckijā attēls tiek ievietots pareizajā vietā
 function check( event, ui ) {
   var digitalNumber = $(this).data( 'number' );
   var analogNumber = ui.draggable.data( 'number' );
@@ -149,9 +169,13 @@ function check( event, ui ) {
   </div>
 
 </div>
-<div class="tooltip">&#8505
+
+
+<div class="tooltip">&#8505 //infographic simbols
   <span class="tooltiptext">Tavs uzdevums ir savstarpēji savienot pareizos pulksteņu laikus.</span>
 </div>
+
+// hamburger menu overlay
 
 <div id="myNav" class="overlay">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
@@ -161,7 +185,9 @@ function check( event, ui ) {
     <a href="../otrais/2uzd.html">Uzdevums #2</a>
   </div>
 </div>
-<span  onclick="openNav()">&#9776;</span>
+
+<span  onclick="openNav()">&#9776;</span> // hamburger menu
+
 <script>
 function openNav() {
   document.getElementById("myNav").style.height = "100%";
@@ -171,6 +197,7 @@ function closeNav() {
   document.getElementById("myNav").style.height = "0%";
 }
 </script>
+
 </body>
 </html>
 */
