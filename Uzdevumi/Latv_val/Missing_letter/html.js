@@ -4,13 +4,11 @@ correct = 0;
 //$('#Digital').html( '' );
 const alphabet = ['a','ā','b','c','č','d','e','ē','f','g','ģ','h','i','ī','j','k','ķ','l','ļ','m','n','ņ','o','p','r','s','š','t','u','ū','v','z','ž'];
 
-let burts_1 = 0;
-let burts_2 = 0;
-let burts_3 = 0;
-let burts_4 = 0;
-let burts_5 = 0;
+let random_burts_array = [];
 
 let missingLetters = [];
+
+
 
 // Izveido funkciju, kas pārkārto masīvu
 function shuffleArray(array) {
@@ -26,13 +24,59 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-while(burts_1 != burts_2 != burts_3 != burts_4 != burts_5){
-  burts_1 = getRandomInt(32);
-  burts_2 = getRandomInt(32);
-  burts_3 = getRandomInt(32);
-  burts_4 = getRandomInt(32);
-  burts_5 = getRandomInt(32);
+while(random_burts_array.length < 5){
+  rng = getRandomInt(32);
+  if(!random_burts_array.includes(rng)){
+    random_burts_array.push(rng);
+  }
 }
+burts_1 = random_burts_array[0];
+burts_2 = random_burts_array[1];
+burts_3 = random_burts_array[2];
+burts_4 = random_burts_array[3];
+burts_5 = random_burts_array[4];
+
+/*
+console.log(burts_1);
+console.log(burts_2);
+console.log(burts_3);
+console.log(burts_4);
+console.log(burts_5);
+*/
+
+// (Laikam) izprintēs visus burtus pareizajās vietās
+for (let i = 0; i < 5; i++) {
+  missingLetters.push(alphabet[random_burts_array[i]]);
+  console.log(missingLetters[i]);
+}
+
+console.log(" ");
+
+missingLetters = shuffleArray(missingLetters);
+for (let i = 0; i< 5; i++){
+  console.log(missingLetters[i]);
+}
+
+// Izprintē burtus no vienas mapes
+// Ja burta indekss sakrīt ar kādu no random_burta_indeksu, tad tas burts tiek izprintēts no otras mapes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // izprinte alfabetu
@@ -41,7 +85,8 @@ function generateAlphabet() {
 
 	// nonem 5 burtus un pieliek pie trukst. burtiem
 	for (let i = 0; i < 5; i++) {
-		missingLetters.push(shuffledAlphabet.pop());
+		missingLetters.push(random_burts_array[i]);
+    console.log(missingLetters[i]);
 	}
     // ieprinte html kodaa
 	for (let i = 0; i < alphabet.length; i++) {
@@ -49,7 +94,7 @@ function generateAlphabet() {
 		let imgSrc = letter + '.jpg';
         // piekarto trukstosos burtus 
 		if (missingLetters.includes(letter)) {
-			imgSrc = 'missing.jpg';
+			imgSrc = './bildes2/missing.jpg';
 		}
 
 		// burtam jauns div
@@ -107,7 +152,7 @@ change.sort( function() { return Math.random() - .5 } );
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   // ieiliek <div> box katru draggable elementu. ==> Pārveidot uz random burtiem (nevajadzētu būt pārāk sarežģīti)
   for ( var i=1; i<=5; i++ ) {
-    $('<div></div>').data( 'number', change[i-1] ).attr( 'id', 'card'+change[i-1] ).appendTo( '#Analog' ).draggable( {
+    $('<div></div>').data( 'number', change[i-1] ).attr( 'id', 'card'+change[i-1] ).appendTo( '#Alfabets' ).draggable( {
       containment: '#content',
       stack: '#Analog div',
       cursor: 'move',
