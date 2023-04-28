@@ -1,80 +1,29 @@
-<!--
-  Pirmais burts - dota bildīte, jāieraksta uz kādu burtu sākas vārds.
--->
-
 <!doctype html>
 <html>
 <head>
-
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<link rel="stylesheet" type="text/css" href="css2.css">
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
-<p>Uzraksti katrā attēlā redzamās lietas 1. burtu:</p>
-<div id="picture-container"></div>
-
-
-<script type="text/javascript">
-  $('#Ending1').hide();
-    // Define an array of picture objects, each containing a URL and a letter.
-const pictures = [
-{url: "bildes2/abols.jpg", letter: "Ā"},
-{url: "picture2.jpg", letter: "B"},
-{url: "picture3.jpg", letter: "C"}
-];
-
-// Shuffle the array of pictures using the Fisher-Yates algorithm.
-for (let i = pictures.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
-  [pictures[i], pictures[j]] = [pictures[j], pictures[i]];
-}
-
-// Atsevisks div katrai bildei un input vieta
-const pictureContainer = document.getElementById("picture-container");
-pictures.forEach(pictures => {
-  const div = document.createElement("div");
-  const label = document.createElement("label");
-  label.textContent = `Uz kuru burtu šis auglis sākas?`;
-  const input = document.createElement("input");
-  input.type = "teksts";
-  input.maxLength = 1;
-  input.required = true;
-  const img = document.createElement("img");
-  img.src = pictures.url;
-  img.alt = `Bilde ar kaut ko kas sākas uz burtu: ${pictures.letter}`;
-  div.appendChild(label);
-  div.appendChild(input);
-  div.appendChild(img);
-  pictureContainer.appendChild(div);
-});
-</script>
-
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="css2.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
-<div id="content1">
-  <div id="Ending1">
-    <button id="again1" onclick="start()">Spēlēt vēlreiz</button>
+  <p>Uzraksti katrā attēlā redzamās lietas 1. burtu:</p>
+  <div id="picture-container"></div>
+  <div id="content1">
+    <div id="Ending1">
+      <button id="again1" onclick="start()">Spēlēt vēlreiz</button>
+    </div>
   </div>
-</div>
-<div class="tooltip">&#8505
-  <span class="tooltiptext">Tavs uzdevums ir uzrakstīt attēlā redzamās lietas pirmo burtu.</span>
-</div>
-<div id="myNav" class="overlay">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div class="overlay-content">
-    <a href="../../../index.html">Sākums</a>
+  <div class="tooltip">&#8505
+    <span class="tooltiptext">Tavs uzdevums ir uzrakstīt attēlā redzamās lietas pirmo burtu.</span>
   </div>
-</div>
-<span  onclick="openNav()">&#9776;</span>
-<script>
-function openNav() {
-  document.getElementById("myNav").style.height = "100%";
-}
-function closeNav() {
-  document.getElementById("myNav").style.height = "0%";
-}
-</script>
+  <div id="myNav" class="overlay">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <div class="overlay-content">
+      <a href="../../../index.html">Sākums</a>
+    </div>
+  </div>
+  <span onclick="openNav()">&#9776;</span>
+  <script src="main.js"></script>
 </body>
 </html>
