@@ -1,3 +1,6 @@
+$( start );
+
+function start1(){
 $('#Ending1').hide();
 
 // Define an array of picture objects, each containing a URL and a letter.
@@ -37,4 +40,13 @@ function openNav() {
 }
 function closeNav() {
   document.getElementById("myNav").style.height = "0%";
+}
+  drop: check
+}
+
+function check(event, ui) {
+    correct++;
+  if (correct==5){
+    $('#Ending').show();
+  }
 }
