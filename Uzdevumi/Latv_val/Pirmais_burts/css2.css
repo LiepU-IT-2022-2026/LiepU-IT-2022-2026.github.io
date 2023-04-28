@@ -2,6 +2,8 @@
 body {
     background-color: var(--project_yellow);
     font-family:'Inconsolata';
+	margin-top: 100px;
+	margin-left: 200px;
 }
   
 #content1 {
