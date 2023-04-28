@@ -76,6 +76,7 @@ function start(){
         revert: true
       } );
       $('#card_'+alphabet[i]).css("background-image", "url(bildes1/"+alphabet[i]+".png)");
+      $('#card_'+alphabet[i]).css("background-size", "150px");
       //ievieto random_burtu #Alfabets div, kā nezināmu burtu pie pārējiem alfabēta burtiem
       $('<div></div>').data('burts', alphabet[i]).attr('id','cardd_'+alphabet[i]).appendTo('#Alfabets').droppable( {
         accept: 'Trukstosie div',
@@ -83,9 +84,11 @@ function start(){
         drop: check
       });
       $('#cardd_'+alphabet[i]).css("background-image", "url(bildes2/"+alphabet[i]+".jpg)");
+      $('#cardd_'+alphabet[i]).css("background-size", "150px");
     } else {
       $('<div></div>').data('burts', alphabet[i]).attr('id','cardd_'+alphabet[i]).appendTo('#Alfabets');
       $('#cardd_'+alphabet[i]).css("background-image", "url(bildes1/"+alphabet[i]+".png)");
+      $('#cardd_'+alphabet[i]).css("background-size", "150px");
     }
   }
 }
