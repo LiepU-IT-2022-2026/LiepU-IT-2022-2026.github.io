@@ -4,7 +4,7 @@ body {
     font-family:'Inconsolata';
 }
   
-#content {
+#content1 {
     background-image:url("fons.gif");
     height:640px;
     background-repeat:no-repeat;
@@ -13,7 +13,7 @@ body {
     margin:auto;
     font-family:'Inconsolata';
 }
-  
+/*
 #Trukstosie {
     margin-bottom:290px; 
 }
@@ -35,8 +35,8 @@ body {
     background-repeat:no-repeat;
     background-position: center;
 }
-  
-#Ending {  
+*/
+#Ending1 {  
     position: absolute;
     left: 60px;
     top: 0;
@@ -51,7 +51,7 @@ body {
     font-family: 'Inconsolata';
 }
 
-#again{
+#again1{
     margin-top: 10%;
     margin-left: 50%;
     color: black;
@@ -64,7 +64,7 @@ body {
     font-family: 'Inconsolata';
 }
 
-#again:hover{
+#again1:hover{
     background-color:var(--project_red);;
 }
 
@@ -163,7 +163,7 @@ span{
     background-color:var(--project_green);
     border-bottom-right-radius:20px;
 }
-
+/*
 #alphabet {
 	display: flex;
 	flex-wrap: wrap;
@@ -185,7 +185,7 @@ span{
 	border: 1px solid black;
 	margin: 5px;
 }
-
+*/
 img {
 	width: 100px;
 	height: 100px;
