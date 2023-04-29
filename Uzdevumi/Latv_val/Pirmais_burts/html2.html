@@ -9,10 +9,12 @@
 </head>
 <body>
   <p>Uzraksti katrā attēlā redzamās lietas 1. burtu:</p>
-  <div id="picture-container"></div>
-  <div id="content1">
-    <div id="Ending1">
-      <button id="again1" onclick="start()">Spēlēt vēlreiz</button>
+  <div id="content">
+    <div id="picture-container">
+      <button id="check" onclick="check()">Pārbaudīt atbildes</button>
+    </div>
+    <div id="Ending">
+      <button id="again" onclick="start()">Spēlēt vēlreiz</button>
     </div>
   </div>
   <div class="tooltip">&#8505
@@ -25,6 +27,13 @@
     </div>
   </div>
   <span onclick="openNav()">&#9776;</span>
-  <script src="main.js"></script>
+  <script>
+    function openNav() {
+      document.getElementById("myNav").style.height = "100%";
+    }
+    function closeNav() {
+      document.getElementById("myNav").style.height = "0%";
+    }
+  </script>
 </body>
 </html>
