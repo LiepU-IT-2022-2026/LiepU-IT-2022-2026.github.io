@@ -79,7 +79,7 @@ function start(){
       $('#card_'+alphabet[i]).css("background-size", "150px");
       //ievieto random_burtu #Alfabets div, kā nezināmu burtu pie pārējiem alfabēta burtiem
       $('<div></div>').data('burts', alphabet[i]).attr('id','cardd_'+alphabet[i]).appendTo('#Alfabets').droppable( {
-        accept: 'Trukstosie div',
+        accept: '#Trukstosie div',
         hoverClass: 'hovered',
         drop: check
       });

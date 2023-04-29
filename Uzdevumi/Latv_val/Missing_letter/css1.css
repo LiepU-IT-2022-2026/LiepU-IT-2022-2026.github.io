@@ -6,7 +6,7 @@ body {
   
 #content {
     background-image:url("fons.gif");
-    height:640px;
+    height:1200px;
     background-repeat:no-repeat;
     background-position: 80% ;
     width:1200px;
@@ -15,13 +15,21 @@ body {
 }
   
 #Trukstosie {
-    margin-bottom:290px; 
+    margin-bottom:290px;
+    display: flex;
+    justify-content: center;
 }
 
 #Alfabets, #Trukstosie { 
     height: 150px;
 }
-  
+
+#Alfabets {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 #Alfabets div, #Trukstosie div {
     float: left;
     width: 150px;
@@ -31,7 +39,7 @@ body {
 }
   
 #Alfabets div:first-child, #Trukstosie div:first-child {
-    margin-left: 150px;
+    /*margin-left: 150px;*/
     background-repeat:no-repeat;
     background-position: center;
 }
