@@ -52,7 +52,7 @@ body {
     width: 90%;
     text-align: center;
     font-size: 18px;
-    height: 1200px;
+    height: 950px;
     background: var(--project_yellow);
     background-image:url("end.gif");
     background-repeat:no-repeat;
