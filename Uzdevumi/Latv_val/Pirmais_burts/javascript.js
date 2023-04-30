@@ -21,6 +21,7 @@ function check(event, ui) {
 };*/
 
 function start(){
+  correct = 0;
   $('#Ending').hide();
 
   // Pārkārto masīvu
@@ -41,9 +42,12 @@ function start(){
     input.type = "teksts";
     input.maxLength = 1;
     input.required = true;
+    input.value = '';
     const img = document.createElement("img");
     img.src = pictures.url;
     img.alt = `Bilde ar kaut ko kas sākas uz burtu: ${pictures.letter}`;
+    img.id = `${pictures.letter}`;
+    img.value = `${pictures.letter}`;
     div.appendChild(label);
     div.appendChild(input);
     div.appendChild(img);
@@ -53,16 +57,25 @@ function start(){
 
 // Funkcija, kas pārbauda vai ievadītais burts ir vienāds ar masīvā norādīto burtu.
 function check(event, ui) {
-  var UserInput = document.getElementById( `${pictures.letter}_input` );
-  var ImageInfo = document.getElementById( `${pictures.letter}` );
-  if (UserInput == ImageInfo){
-    correct += 1;
-  }
+  pictures.forEach(pictures => {
+    var UserInput = document.getElementById( `${pictures.letter}_input` );
+    var ImageInfo = document.getElementById( `${pictures.letter}` );
+    console.log(UserInput.value);
+    console.log(ImageInfo.value);
+    if (UserInput.value.toUpperCase() == ImageInfo.value){
+      correct += 1;
+    };
+  });
   if (correct == 3){
     const pictureContainer = document.getElementById("picture-container");
     pictureContainer.innerHTML = '';
     $('#Ending').show();
-  }
+    console.log(correct);
+  } else {
+    alert('Pārbaudi atbildes! Kāda no tām ir kļūdaina/tukša.\nPareizas atbildes: '+correct+'/3');
+    console.log(correct);
+    correct = 0;
+  };
 };
 
 /*
