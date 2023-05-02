@@ -13,6 +13,8 @@ function start(){
 
   let missingLetters = [];
 
+  let trukstosie_burti_array = [];
+
 
 
   // Izveido funkciju, kas pārkārto masīvu
@@ -59,33 +61,45 @@ function start(){
 
   missingLetters = shuffleArray(missingLetters);
   for (let i = 0; i< 5; i++){
-    console.log(missingLetters[i]);
+    console.log(i, missingLetters[i]);
+    trukstosie_burti_array.push(missingLetters[i])
   }
+
+  console.log(" ");
+
+  trukstosie_burti_array = shuffleArray(trukstosie_burti_array);
+  for (let i = 0; i< 5; i++){
+    console.log(i, trukstosie_burti_array[i]);
+  }
+
+
+  console.log(" ");
 
   // Izprintē burtus no vienas mapes
   // Ja burta indekss sakrīt ar kādu no random_burta_indeksu, tad tas burts tiek izprintēts no otras mapes.
 
-  for(let i = 0; i<alphabet.length; i++){
+  for(let i = 0; i<5; i++){
     // "Ir iespējams optimizēt šo koda daļu, bet man ir kinda šobrīd slinkums" -mAa4a97, 2023.04.18.
-    if(i == random_burts_array[0] || i == random_burts_array[1] || i == random_burts_array[2] || i == random_burts_array[3] || i == random_burts_array[4]){
       //ievieto random_burtu #Trukstosie div, kā interaktīvu objektu.
-      $('<div></div>').data('burts', alphabet[i]).attr('id','card_'+alphabet[i]).appendTo('#Trukstosie').draggable( {
+      $('<div></div>').data('burts', missingLetters[i]).attr('id','card_'+missingLetters[i]).appendTo('#Trukstosie').draggable( {
         containment: '#content',
         stack: '#Trukstosie div',
         cursor: 'move',
         revert: true
       } );
-      $('#card_'+alphabet[i]).css("background-image", "url(bildes1/"+alphabet[i]+".png)");
-      $('#card_'+alphabet[i]).css("background-size", "128px");
+      console.log(i, missingLetters[i]);
+      $('#card_'+missingLetters[i]).css("background-image", "url(bildes1/"+missingLetters[i]+".png)");
+      $('#card_'+missingLetters[i]).css("background-size", "128px");
+
       //ievieto random_burtu #Alfabets div, kā nezināmu burtu pie pārējiem alfabēta burtiem
-      $('<div></div>').data('burts', alphabet[i]).attr('id','cardd_'+alphabet[i]).appendTo('#Alfabets').droppable( {
+      $('<div></div>').data('burts', trukstosie_burti_array[i]).attr('id','cardd_'+trukstosie_burti_array[i]).appendTo('#Alfabets').droppable( {
         accept: '#Trukstosie div',
         hoverClass: 'hovered',
         drop: check
       });
-      $('#cardd_'+alphabet[i]).css("background-image", "url(bildes2/"+alphabet[i]+".png)");
-      $('#cardd_'+alphabet[i]).css("background-size", "128px");
-    }
+      console.log(i, trukstosie_burti_array[i]);
+      $('#cardd_'+trukstosie_burti_array[i]).css("background-image", "url(bildes2/"+trukstosie_burti_array[i]+".png)");
+      $('#cardd_'+trukstosie_burti_array[i]).css("background-size", "128px");
   }
 }
 

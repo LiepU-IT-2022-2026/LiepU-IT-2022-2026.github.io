@@ -13,6 +13,8 @@ function start(){
 
   let missingLetters = [];
 
+  let j = 0;
+
 
 
   // Izveido funkciju, kas pārkārto masīvu
@@ -41,13 +43,13 @@ function start(){
   burts_4 = random_burts_array[3];
   burts_5 = random_burts_array[4];
 
-  /*
+  
   console.log(burts_1);
   console.log(burts_2);
   console.log(burts_3);
   console.log(burts_4);
   console.log(burts_5);
-  */
+
 
   // (Laikam) izprintēs visus burtus pareizajās vietās
   for (let i = 0; i < 5; i++) {
@@ -69,14 +71,14 @@ function start(){
     // "Ir iespējams optimizēt šo koda daļu, bet man ir kinda šobrīd slinkums" -mAa4a97, 2023.04.18.
     if(i == random_burts_array[0] || i == random_burts_array[1] || i == random_burts_array[2] || i == random_burts_array[3] || i == random_burts_array[4]){
       //ievieto random_burtu #Trukstosie div, kā interaktīvu objektu.
-      $('<div></div>').data('burts', alphabet[i]).attr('id','card_'+alphabet[i]).appendTo('#Trukstosie').draggable( {
+      $('<div></div>').data('burts', missingLetters[j]).attr('id','card_'+missingLetters[j]).appendTo('#Trukstosie').draggable( {
         containment: '#content',
         stack: '#Trukstosie div',
         cursor: 'move',
         revert: true
       } );
-      $('#card_'+alphabet[i]).css("background-image", "url(bildes1/"+alphabet[i]+".png)");
-      $('#card_'+alphabet[i]).css("background-size", "128px");
+      $('#card_'+missingLetters[j]).css("background-image", "url(bildes1/"+missingLetters[j]+".png)");
+      $('#card_'+missingLetters[j]).css("background-size", "128px");
       //ievieto random_burtu #Alfabets div, kā nezināmu burtu pie pārējiem alfabēta burtiem
       $('<div></div>').data('burts', alphabet[i]).attr('id','cardd_'+alphabet[i]).appendTo('#Alfabets').droppable( {
         accept: '#Trukstosie div',
@@ -85,6 +87,7 @@ function start(){
       });
       $('#cardd_'+alphabet[i]).css("background-image", "url(bildes2/"+alphabet[i]+".jpg)");
       $('#cardd_'+alphabet[i]).css("background-size", "128px");
+      j++;
     } else {
       $('<div></div>').data('burts', alphabet[i]).attr('id','cardd_'+alphabet[i]).appendTo('#Alfabets');
       $('#cardd_'+alphabet[i]).css("background-image", "url(bildes1/"+alphabet[i]+".png)");
