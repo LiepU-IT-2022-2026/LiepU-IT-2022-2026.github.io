@@ -26,6 +26,9 @@ function start(){
     const label = document.createElement("label");
     label.textContent = `Uz kuru burtu šis auglis sākas?`;
     const input = document.createElement("input");
+    input.addEventListener("focus", function() {
+  input.style = 'border-radius: 20px; border: 4px solid var(--project_green); text-align: center;';
+});
     input.id = `${pictures.letter}_input`;
     input.type = "teksts";
     input.maxLength = 1;
@@ -50,9 +53,6 @@ function check(event, ui) {
     var ImageInfo = document.getElementById( `${pictures.letter}` );
     console.log(UserInput.value);
     console.log(ImageInfo.value);
-    input.addEventListener("focus", function() {
-  input.style = 'border-radius: 20px; border: 4px solid var(--project_green); text-align: center;';
-});
     if (UserInput.value.toUpperCase() == ImageInfo.value){
       correct += 1;
     };
