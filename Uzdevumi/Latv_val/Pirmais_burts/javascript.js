@@ -27,8 +27,8 @@ function start(){
     label.textContent = `Uz kuru burtu šis auglis sākas?`;
     const input = document.createElement("input");
     input.style = 'border-radius: 20px; border: 4px solid var(--project_red); text-align: center;'
-    input.addEventListener("focus", function() {
-  input.style = 'border-radius: 20px; border: 4px solid var(--project_green); text-align: center;';
+    input.onfocus = function(){
+  input.style = 'border-radius: 20px; border: 4px solid var(--project_green); text-align: center;'; };
     input.id = `${pictures.letter}_input`;
     input.type = "teksts";
     input.maxLength = 1;
@@ -43,7 +43,6 @@ function start(){
     div.appendChild(input);
     div.appendChild(img);
     pictureContainer.appendChild(div);
-  });
   });
 };
 
