@@ -77,6 +77,9 @@ function check(event, ui) {
     correct = 0;
   };
 };
+input.addEventListener("focus", function() {
+  input.style = 'border-radius: 20px; border: 4px solid var(--project_green); text-align: center;';
+});
 
 /*
 Vecais kods:
