@@ -162,10 +162,3 @@ img {
 #check:hover{
     background-color:var(--project_red);;
 }
-#picture-container{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 100%;
- max-height: 100%;
-}
