@@ -159,3 +159,6 @@ img {
     cursor: pointer;
     font-family: 'Inconsolata';
 }
+#check:hover{
+    background-color:var(--project_red);;
+}
