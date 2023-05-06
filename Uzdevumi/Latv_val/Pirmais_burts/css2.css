@@ -162,3 +162,9 @@ img {
 #check:hover{
     background-color:var(--project_red);;
 }
+#picture-container{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
