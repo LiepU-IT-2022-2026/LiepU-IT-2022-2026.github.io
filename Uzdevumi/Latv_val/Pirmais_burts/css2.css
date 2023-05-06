@@ -1,19 +1,34 @@
 @import "../../../index.css";
+/* OUTLINE VISIEM ELEMENTIEM */
+/* 
+* { 
+    outline: 1px solid red;
+    outline-offset: -1px;
+}
+*/
 body {
     background-color: var(--project_yellow);
     font-family:'Inconsolata';
-	margin-top: 100px;
-	margin-left: 200px;
+    height: 600px;
 }
   
 #content {
     background-image:url("fons.gif");
-    height:640px;
+    height: max-content;
     background-repeat:no-repeat;
     background-position: 80% ;
     width:1200px;
     margin:auto;
     font-family:'Inconsolata';
+}
+
+#picture-container {
+    margin-top: 100px;
+	margin-left: 200px;
+}
+
+#check {
+    margin-left: 200px;
 }
 
 #Ending {  

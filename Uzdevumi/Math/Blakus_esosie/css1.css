@@ -142,3 +142,34 @@ span{
     background-color:var(--project_green);
     border-bottom-right-radius:20px;
 }
+
+#Blakusskaitli {
+    margin-top: 100px;
+    margin-bottom: 145px;
+    display: flex;
+    justify-content: center;
+}
+
+#Skaitli, #Blakusskaitli { 
+    height: 128px;
+}
+
+#Skaitli {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#Skaitli div, #Blakusskaitli div {
+    float: left;
+    width: 128px;
+    height: 128px;
+    background-repeat:no-repeat;
+    background-position: center;
+}
+  
+#Skaitli div:first-child, #Blakusskaitli div:first-child {
+    /*margin-left: 150px;*/
+    background-repeat:no-repeat;
+    background-position: center;
+}
