@@ -13,7 +13,7 @@ function start(){
   $('#Ending').hide();
 
   // Pārkārto masīvu
-  for (let i = 1; i > 0; i--) {
+  for (let i = pictures.length; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [pictures[i], pictures[j]] = [pictures[j], pictures[i]];
   }
