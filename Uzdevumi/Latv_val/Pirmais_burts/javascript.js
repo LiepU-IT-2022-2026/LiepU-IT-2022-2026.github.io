@@ -26,6 +26,7 @@ function start(){
     const label = document.createElement("label");
     label.textContent = `Uz kuru burtu šis auglis sākas?`;
     const input = document.createElement("input");
+    input.style = 'border-radius: 20px; border: 4px solid var(--project_red); text-align: center;'
     input.addEventListener("focus", function() {
   input.style = 'border-radius: 20px; border: 4px solid var(--project_green); text-align: center;';
 });
