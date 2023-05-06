@@ -13,7 +13,7 @@ function start(){
   $('#Ending').hide();
 
   // Pārkārto masīvu
-  for (let i = pictures.length - 1; i > 0; i--) {
+  for (let i = 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [pictures[i], pictures[j]] = [pictures[j], pictures[i]];
   }
@@ -57,13 +57,13 @@ function check(event, ui) {
       correct += 1;
     };
   });
-  if (correct == 3){
+  if (correct == 2){
     const pictureContainer = document.getElementById("picture-container");
     pictureContainer.innerHTML = '';
     $('#Ending').show();
     console.log(correct);
   } else {
-    alert('Pārbaudi atbildes! Kāda no tām ir kļūdaina/tukša.\nPareizas atbildes: '+correct+'/3');
+    alert('Pārbaudi atbildes! Kāda no tām ir kļūdaina/tukša.\nPareizas atbildes: '+correct+'/2');
     console.log(correct);
     correct = 0;
   };
