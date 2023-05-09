@@ -1,21 +1,20 @@
 // Define an array of picture objects, each containing a URL and a letter.
 const pictures = [
   {url: "bildes2/abols.png", letter: "Ā"},
-  {url: "picture2.jpg", letter: "B"},
-  {url: "picture3.jpg", letter: "C"},
-  {url: "picture3.jpg", letter: "C"},
-  {url: "picture3.jpg", letter: "C"},
-  {url: "picture3.jpg", letter: "C"},
-  {url: "picture3.jpg", letter: "C"},
-  {url: "picture3.jpg", letter: "C"},
-  {url: "picture3.jpg", letter: "C"},
-  {url: "picture3.jpg", letter: "C"}
+  {url: "bildes2/abols.png", letter: "B"},
+  {url: "bildes2/abols.png", letter: "C"},
+  //{url: "picture3.jpg", letter: "Z"},
+  //{url: "picture3.jpg", letter: "K"},
+  //{url: "picture3.jpg", letter: "L"},
+  //{url: "picture3.jpg", letter: "F"}
 ];
 var correct = 0;
 
 $( start );
 
 function start(){
+  const RNG_pictures = [];
+
   correct = 0;
   $('#Ending').hide();
 
@@ -25,56 +24,74 @@ function start(){
     [pictures[i], pictures[j]] = [pictures[j], pictures[i]];
   }
 
+  //Pievieno sākuma masīva pirmos 2 pārkārtotos elementus jaunam masīvam
+  for (let i = 0; i<3; i++){
+    RNG_pictures.push(pictures[i]);
+  }
+  console.log(RNG_pictures);
   // Atsevisks div katrai bildei un input vieta
   const pictureContainer = document.getElementById("picture-container");
+
+  //const label = document.createElement("label");
+  //label.textContent = `Uz kuru burtu šis auglis sākas?`;
+  //content.appendChild(label);
+
   //pictureContainer.innerHTML = '';
-  pictures.forEach(pictures => {
+  RNG_pictures.forEach(RNG_pictures => {
     const div = document.createElement("div");
-    const label = document.createElement("label");
-    label.textContent = `Uz kuru burtu šis auglis sākas?`;
+    div.style = 'display: flex; align-items: center; margin: 64px';
+    
+    const answerDiv = document.createElement("div");
+    answerDiv.style = 'display: flex; flex-direction: column; align-items: center;';
+    //const label = document.createElement("label");
+    //label.textContent = `Uz kuru burtu šis auglis sākas?`;
     const input = document.createElement("input");
-    input.style = 'border-radius: 20px; border: 4px solid var(--project_red); text-align: center;'
+    input.style = 'border-radius: 20px; border: 4px solid var(--project_red); text-align: center; width: 132px; font-size: 40px;'
     input.addEventListener("blur", function() {
-      input.style = 'border-radius: 20px; border: 4px solid var(--project_red); text-align: center;';
+      input.style = 'border-radius: 20px; border: 4px solid var(--project_red); text-align: center; width: 132px; font-size: 40px;';
     });
     input.addEventListener("focus", function() {
-      input.style = 'border-radius: 20px; border: 4px solid var(--project_green); text-align: center;';
+      input.style = 'border-radius: 20px; border: 4px solid var(--project_green); text-align: center; width: 132px; font-size: 40px;';
     });
-    input.id = `${pictures.letter}_input`;
+    input.id = `${RNG_pictures.letter}_input`;
     input.type = "teksts";
     input.maxLength = 1;
     input.required = true;
     input.value = '';
     const img = document.createElement("img");
-    img.src = pictures.url;
-    img.alt = `Bilde ar kaut ko kas sākas uz burtu: ${pictures.letter}`;
-    img.id = `${pictures.letter}`;
-    img.value = `${pictures.letter}`;
-    div.appendChild(label);
-    div.appendChild(input);
-    div.appendChild(img);
+    img.src = RNG_pictures.url;
+    img.alt = `Bilde ar kaut ko kas sākas uz burtu: ${RNG_pictures.letter}`;
+    img.id = `${RNG_pictures.letter}`;
+    img.value = `${RNG_pictures.letter}`;
+    img.style = 'width: 384px; height: 384px;'
+    //div.appendChild(label);
+    answerDiv.appendChild(img);
+    answerDiv.appendChild(input);
+
+    div.appendChild(answerDiv);
     pictureContainer.appendChild(div);
+    pictureContainer.style = 'display: flex; justify-content: center;'
   });
 };
 
 // Funkcija, kas pārbauda vai ievadītais burts ir vienāds ar masīvā norādīto burtu.
 function check(event, ui) {
-  pictures.forEach(pictures => {
-    var UserInput = document.getElementById( `${pictures.letter}_input` );
-    var ImageInfo = document.getElementById( `${pictures.letter}` );
+  pictures.forEach(RNG_pictures => {
+    var UserInput = document.getElementById( `${RNG_pictures.letter}_input` );
+    var ImageInfo = document.getElementById( `${RNG_pictures.letter}` );
     console.log(UserInput.value);
     console.log(ImageInfo.value);
     if (UserInput.value.toUpperCase() == ImageInfo.value){
       correct += 1;
     };
   });
-  if (correct == 2){
+  if (correct == 3){
     const pictureContainer = document.getElementById("picture-container");
     pictureContainer.innerHTML = '';
     $('#Ending').show();
     console.log(correct);
   } else {
-    alert('Pārbaudi atbildes! Kāda no tām ir kļūdaina/tukša.\nPareizas atbildes: '+correct+'/2');
+    alert('Pārbaudi atbildes! Kāda no tām ir kļūdaina/tukša.\nPareizas atbildes: '+correct+'/3');
     console.log(correct);
     correct = 0;
   };
