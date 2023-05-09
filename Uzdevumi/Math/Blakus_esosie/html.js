@@ -32,7 +32,7 @@ function start(){
     hoverClass: 'hovered',
     drop: check
   } );
-  $('#card_'+String(rand_skaitlis-1)).css("background-image", "url(Skaitli/"+String(rand_skaitlis-1)+".png)");
+  $('#card_'+String(rand_skaitlis-1)).css("background-image", "url(Placeholders/"+String(rand_skaitlis-1)+".png)");
   $('#card_'+String(rand_skaitlis-1)).css("background-size", "128px");
 
   $('<div></div>').data('skaitlis', String(rand_skaitlis)).attr('id','card_'+String(rand_skaitlis)).appendTo('#Blakusskaitli');
@@ -44,7 +44,7 @@ function start(){
     hoverClass: 'hovered',
     drop: check
   } );
-  $('#card_'+String(rand_skaitlis+1)).css("background-image", "url(Skaitli/"+String(rand_skaitlis+1)+".png)");
+  $('#card_'+String(rand_skaitlis+1)).css("background-image", "url(Placeholders/"+String(rand_skaitlis+1)+".png)");
   $('#card_'+String(rand_skaitlis+1)).css("background-size", "128px");
 
 
@@ -53,18 +53,28 @@ function start(){
   for(let i = 0; i<=10; i++){
     // "Ir iespējams optimizēt šo koda daļu, bet man ir kinda šobrīd slinkums" -mAa4a97, 2023.04.18.
     //ievieto random_burtu #Trukstosie div, kā interaktīvu objektu.
-    $('<div></div>').data('burts', String(i)).attr('id','card_'+String(i)).appendTo('#Skaitli').draggable( {
+    $('<div></div>').data('skaitlis', String(i)).attr('id','cardd_'+String(i)).appendTo('#Skaitli').draggable( {
       containment: '#content',
       stack: '#Trukstosie div',
       cursor: 'move',
       revert: true
     } );
-    $('#card_'+String(i)).css("background-image", "url(Skaitli/"+String(i)+".png)");
-    $('#card_'+String(i)).css("background-size", "128px");
+    $('#cardd_'+String(i)).css("background-image", "url(Skaitli/"+String(i)+".png)");
+    $('#cardd_'+String(i)).css("background-size", "128px");
   }
 };
 
 function check(event, ui) {
+  var blakusSkaitlis = $(this).data( 'skaitlis' );
+  var visiSkaitli = ui.draggable.data( 'skaitlis' );  
+  if (blakusSkaitlis == visiSkaitli) {
+    ui.draggable.addClass( 'correct' );
+    ui.draggable.draggable( 'disable' );
+    $(this).droppable( 'disable' );
+    ui.draggable.position( { of: $(this), my: 'left top', at: 'left top' } );
+    ui.draggable.draggable( 'option', 'revert', false );
+    correct++;
+  }
   if (correct==2){
     $('#Ending').show();
   }
