@@ -14,7 +14,7 @@ function start(){
   $('#Ending').hide();
   
   $('#Blakusskaitli').html( '' );
-  $('#Skaitlis').html( '' );
+  $('#Skaitli').html( '' );
 
 
   function getRandomInt(max) {
