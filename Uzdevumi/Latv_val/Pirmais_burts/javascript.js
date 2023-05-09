@@ -2,6 +2,13 @@
 const pictures = [
   {url: "bildes2/abols.png", letter: "Ā"},
   {url: "picture2.jpg", letter: "B"},
+  {url: "picture3.jpg", letter: "C"},
+  {url: "picture3.jpg", letter: "C"},
+  {url: "picture3.jpg", letter: "C"},
+  {url: "picture3.jpg", letter: "C"},
+  {url: "picture3.jpg", letter: "C"},
+  {url: "picture3.jpg", letter: "C"},
+  {url: "picture3.jpg", letter: "C"},
   {url: "picture3.jpg", letter: "C"}
 ];
 var correct = 0;
