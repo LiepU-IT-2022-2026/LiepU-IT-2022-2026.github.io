@@ -168,10 +168,10 @@ span{
     padding:20px; 
     position:absolute; 
     top:0px;
-    left:0px;
+    right:0px;
     color:var(--white-full);
     background-color:var(--project_green);
-    border-bottom-right-radius:20px;
+    border-bottom-left-radius:20px;
 }
 
 #alphabet {
