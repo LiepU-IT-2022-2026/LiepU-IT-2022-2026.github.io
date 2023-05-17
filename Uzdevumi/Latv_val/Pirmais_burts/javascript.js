@@ -20,7 +20,11 @@ function check() {
       correct += 1;
     }
   });
-
+input.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        check(); // Call check() when the Enter key is pressed
+      }
+    });
   if (correct === 3) {
     const pictureContainer = document.getElementById("picture-container");
     pictureContainer.innerHTML = '';
