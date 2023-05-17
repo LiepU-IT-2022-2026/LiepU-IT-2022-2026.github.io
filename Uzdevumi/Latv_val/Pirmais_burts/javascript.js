@@ -9,6 +9,29 @@ const pictures = [
 ];
 var correct = 0;
 
+// Funkcija, kas pārbauda vai ievadītais burts ir vienāds ar masīvā norādīto burtu.
+//$(check);
+function check() {
+  var correct = 0;
+
+  pictures.forEach(picture => {
+    var userInput = document.getElementById(`${picture.letter}_input`);
+    if (userInput.value.toUpperCase() === picture.letter) {
+      correct += 1;
+    }
+  });
+
+  if (correct === 3) {
+    const pictureContainer = document.getElementById("picture-container");
+    pictureContainer.innerHTML = '';
+    $('#Ending').show();
+    console.log(correct);
+  } else {
+    alert('Pārbaudi atbildes! Kāda no tām ir kļūdaina/tukša.\nPareizas atbildes: ' + correct + '/3');
+    console.log(correct);
+  }
+}
+
 $( start );
 
 function start(){
@@ -73,28 +96,6 @@ function start(){
   });
 };
 
-// Funkcija, kas pārbauda vai ievadītais burts ir vienāds ar masīvā norādīto burtu.
-$(check);
-function check() {
-  var correct = 0;
-
-  pictures.forEach(picture => {
-    var userInput = document.getElementById(`${picture.letter}_input`);
-    if (userInput.value.toUpperCase() === picture.letter) {
-      correct += 1;
-    }
-  });
-
-  if (correct === 3) {
-    const pictureContainer = document.getElementById("picture-container");
-    pictureContainer.innerHTML = '';
-    $('#Ending').show();
-    console.log(correct);
-  } else {
-    alert('Pārbaudi atbildes! Kāda no tām ir kļūdaina/tukša.\nPareizas atbildes: ' + correct + '/3');
-    console.log(correct);
-  }
-}
 
 /*
 function check(event, ui) {
