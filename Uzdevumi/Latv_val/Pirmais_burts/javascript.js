@@ -10,7 +10,32 @@ const pictures = [
 //var correct = 0;
 
 // Funkcija, kas pārbauda vai ievadītais burts ir vienāds ar masīvā norādīto burtu.
-//$(check);
+function check() {
+  var correct = 0;
+
+  pictures.forEach(picture => {
+    var userInput = document.getElementById(`${picture.letter}_input`);
+    var imageInfo = document.getElementById(`${picture.letter}`);
+    console.log(userInput.value);
+    console.log(imageInfo.alt);
+    if (userInput.value.toUpperCase() === imageInfo.alt.charAt(0).toUpperCase()) {
+      correct += 1;
+    }
+  });
+
+  if (correct === 3) {
+    const pictureContainer = document.getElementById("picture-container");
+    pictureContainer.innerHTML = '';
+    $('#Ending').show();
+    console.log(correct);
+  } else {
+    alert('Pārbaudi atbildes! Kāda no tām ir kļūdaina/tukša.\nPareizas atbildes: ' + correct + '/3');
+    console.log(correct);
+  }
+}
+
+
+/*
 function check() {
   var correct = 0;
 
@@ -35,6 +60,7 @@ input.addEventListener("keypress", function(event) {
     console.log(correct);
   }
 }
+*/
 
 $( start );
 
@@ -102,25 +128,4 @@ function start(){
 
 
 /*
-function check(event, ui) {
-  pictures.forEach(RNG_pictures => {
-    var UserInput = document.getElementById( `${RNG_pictures.letter}_input` );
-    var ImageInfo = document.getElementById( `${RNG_pictures.letter}` );
-    console.log(UserInput.value);
-    console.log(ImageInfo.value);
-    if (UserInput.value.toUpperCase() == ImageInfo.value){
-      correct += 1;
-    };
-  });
-  if (correct == 3){
-    const pictureContainer = document.getElementById("picture-container");
-    pictureContainer.innerHTML = '';
-    $('#Ending').show();
-    console.log(correct);
-  } else {
-    alert('Pārbaudi atbildes! Kāda no tām ir kļūdaina/tukša.\nPareizas atbildes: '+correct+'/3');
-    console.log(correct);
-    correct = 0;
-  };
-};
 */
