@@ -7,7 +7,7 @@ const pictures = [
   {url: "bildes2/Vīnoga.png", letter: "V"},
   {url: "bildes2/Zemene.png", letter: "Z"},
 ];
-var correct = 0;
+//var correct = 0;
 
 // Funkcija, kas pārbauda vai ievadītais burts ir vienāds ar masīvā norādīto burtu.
 //$(check);
