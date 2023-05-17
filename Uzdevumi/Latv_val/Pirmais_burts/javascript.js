@@ -9,29 +9,6 @@ const pictures = [
 
 let selectedPictures = [];
 
-function check() {
-  let correct = 0;
-
-  selectedPictures.forEach(picture => {
-    const userInput = document.getElementById(`${picture.letter}_input`);
-    const imageInfo = document.getElementById(`${picture.letter}`);
-
-    if (userInput.value.toUpperCase() === imageInfo.alt.charAt(0).toUpperCase()) {
-      correct += 1;
-    }
-  });
-
-  if (correct === 3) {
-    const pictureContainer = document.getElementById("picture-container");
-    pictureContainer.innerHTML = '';
-    $('#Ending').show();
-    console.log(correct);
-  } else {
-    alert('Pārbaudi atbildes! Kāda no tām ir kļūdaina/tukša.\nPareizas atbildes: ' + correct + '/3');
-    console.log(correct);
-  }
-}
-
 $(start);
 
 function start() {
@@ -74,4 +51,27 @@ function start() {
     pictureContainer.appendChild(div);
     pictureContainer.style = 'display: flex; justify-content: center;';
   });
+}
+
+function check() {
+  let correct = 0;
+
+  selectedPictures.forEach(picture => {
+    const userInput = document.getElementById(`${picture.letter}_input`);
+    const imageInfo = document.getElementById(`${picture.letter}`);
+
+    if (userInput.value.toUpperCase() === imageInfo.alt.charAt(0).toUpperCase()) {
+      correct += 1;
+    }
+  });
+
+  if (correct == 3) {
+    const pictureContainer = document.getElementById("picture-container");
+    pictureContainer.innerHTML = '';
+    $('#Ending').show();
+    console.log(correct);
+  } else {
+    alert('Pārbaudi atbildes! Kāda no tām ir kļūdaina/tukša.\nPareizas atbildes: ' + correct + '/3');
+    console.log(correct);
+  }
 }
