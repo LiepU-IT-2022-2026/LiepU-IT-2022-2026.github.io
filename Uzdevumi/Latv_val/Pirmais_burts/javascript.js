@@ -74,6 +74,28 @@ function start(){
 };
 
 // Funkcija, kas pārbauda vai ievadītais burts ir vienāds ar masīvā norādīto burtu.
+function check() {
+  var correct = 0;
+
+  pictures.forEach(picture => {
+    var userInput = document.getElementById(`${picture.letter}_input`);
+    if (userInput.value.toUpperCase() === picture.letter) {
+      correct += 1;
+    }
+  });
+
+  if (correct === 3) {
+    const pictureContainer = document.getElementById("picture-container");
+    pictureContainer.innerHTML = '';
+    $('#Ending').show();
+    console.log(correct);
+  } else {
+    alert('Pārbaudi atbildes! Kāda no tām ir kļūdaina/tukša.\nPareizas atbildes: ' + correct + '/3');
+    console.log(correct);
+  }
+}
+
+/*
 function check(event, ui) {
   pictures.forEach(RNG_pictures => {
     var UserInput = document.getElementById( `${RNG_pictures.letter}_input` );
@@ -95,3 +117,4 @@ function check(event, ui) {
     correct = 0;
   };
 };
+*/
