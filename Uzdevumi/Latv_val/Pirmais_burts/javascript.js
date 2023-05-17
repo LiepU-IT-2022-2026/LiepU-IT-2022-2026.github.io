@@ -74,6 +74,7 @@ function start(){
 };
 
 // Funkcija, kas pārbauda vai ievadītais burts ir vienāds ar masīvā norādīto burtu.
+$(check);
 function check() {
   var correct = 0;
 
