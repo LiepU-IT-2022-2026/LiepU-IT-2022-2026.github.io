@@ -1,12 +1,11 @@
 // Define an array of picture objects, each containing a URL and a letter.
 const pictures = [
   {url: "bildes2/abols.png", letter: "Ā"},
-  {url: "bildes2/abols.png", letter: "B"},
-  {url: "bildes2/abols.png", letter: "C"},
-  //{url: "picture3.jpg", letter: "Z"},
-  //{url: "picture3.jpg", letter: "K"},
-  //{url: "picture3.jpg", letter: "L"},
-  //{url: "picture3.jpg", letter: "F"}
+  {url: "bildes2/Bumbiers.png", letter: "B"},
+  {url: "bildes2/banans.png", letter: "B"},
+  {url: "bildes2/Arbuz.png", letter: "A"},
+  {url: "bildes2/Vīnoga.png", letter: "V"},
+  {url: "bildes2/Zemene.png", letter: "Z"},
 ];
 var correct = 0;
 
