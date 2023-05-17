@@ -12,6 +12,7 @@ let selectedPictures = [];
 $(start);
 
 function start() {
+  $('#Ending').hide();
   selectedPictures = pictures.slice(0, 3);
   const pictureContainer = document.getElementById("picture-container");
   pictureContainer.innerHTML = '';
