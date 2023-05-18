@@ -68,6 +68,8 @@ function check(event, ui) {
   var blakusSkaitlis = $(this).data( 'skaitlis' );
   var visiSkaitli = ui.draggable.data( 'skaitlis' );  
   if (blakusSkaitlis == visiSkaitli) {
+    var bg = document.getElementById('card_'+$(this).data( 'skaitlis' ));
+    bg.style = 'opacity: 0;';
     ui.draggable.addClass( 'correct' );
     ui.draggable.draggable( 'disable' );
     $(this).droppable( 'disable' );

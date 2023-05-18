@@ -100,6 +100,10 @@ function check(event, ui) {
   var TrukstosieBurti = $(this).data( 'burts' );
   var alfabetaBurti = ui.draggable.data( 'burts' );  
   if (TrukstosieBurti == alfabetaBurti) {
+    // noņemam placeholder image alfabētā
+    var bg = document.getElementById('cardd_'+$(this).data( 'burts' ));
+    bg.style = 'opacity: 0;';
+    // noņemam funkciju pieņemt jaunus burtus placeholder + burtiem noņemam funkciju kustēties
     ui.draggable.addClass( 'correct' );
     ui.draggable.draggable( 'disable' );
     $(this).droppable( 'disable' );

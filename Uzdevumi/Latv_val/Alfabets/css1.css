@@ -15,8 +15,8 @@ body {
 }
   
 #Trukstosie {
-    margin-top: 100px;
-    margin-bottom: 145px;
+    margin-top: 40%;
+    /*margin-bottom: 145px;*/
     display: flex;
     justify-content: center;
 }
@@ -26,6 +26,7 @@ body {
 }
 
 #Alfabets {
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

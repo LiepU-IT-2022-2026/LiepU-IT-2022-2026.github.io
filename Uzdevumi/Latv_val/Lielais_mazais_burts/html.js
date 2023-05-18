@@ -107,6 +107,8 @@ function check(event, ui) {
   var TrukstosieBurti = $(this).data( 'burts' );
   var alfabetaBurti = ui.draggable.data( 'burts' );  
   if (TrukstosieBurti == alfabetaBurti) {
+    var bg = document.getElementById('cardd_'+$(this).data( 'burts' ));
+    bg.style = 'opacity: 0;';
     ui.draggable.addClass( 'correct' );
     ui.draggable.draggable( 'disable' );
     $(this).droppable( 'disable' );
