@@ -1,0 +1,38 @@
+<!doctype html> <!-- programmas tips ir HTML5 -->
+<html> <!-- HTML koda sākums -->
+  <head> <!-- galvenes sākums -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"> <!-- šis nodrošina, ka pārlūks pareizi interpretē simbolus -->
+    <link rel="stylesheet" type="text/css" href="css1.css"> <!-- saista ārējo CSS failu ar šo HTML failu -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> <!-- iekļauj jQuery bibliotēku -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> <!-- iekļauj jQuery UI bibliotēku -->
+    <script src="html.js"></script> <!-- saista ārējo JavaScript failu ar šo HTML failu -->
+</head> <!-- galvenes beigas -->
+<body style="cursor:auto"> <!-- body sākums; pārlūkprogramma automātiski noteiks kursora tipu atkarībā no konteksta -->
+<div id="content"> <!-- div elements ar savu ID -->
+  <div id="Trukstosie"> </div> <!-- vieta, kur atradīsies trūkstošie burti -->
+  <div id="Alfabets"> </div> <!-- vieta, kur atradīsies alfabēts -->
+  <div id="Ending"> <!-- beigu daļa -->
+    <button id="again" onclick="start()">Spēlēt vēlreiz</button> <!-- beigu daļā ir poga, ar kuru var spēlēt vēlreiz šo spēli -->
+  </div> <!-- iedalījuma beigas -->
+</div>
+<div class="tooltip">&#8505 <!-- satur Unicode simbolu -->
+  <span class="tooltiptext">Tavs uzdevums ir ievilkt alfabēta burtus pareizajās vietās.</span> <!-- un tajā ir izlasāms šis teksts -->
+</div>
+<div id="myNav" class="overlay"> <!--  -->
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> <!-- uzspiežot simbolu, parādas pārklājums. Vēlreiz uzspiežot, aizveras -->
+  <div class="overlay-content">
+    <a href="../../../index.html">Sākums</a> <!-- hipersaite -->
+  </div>
+</div>
+<span  onclick="openNav()">&#9776;</span> <!-- attēlo Unicode simbolu, satur openNav funkciju -->
+<script> //JavaScript funkcijas sākums
+function openNav() {
+  document.getElementById("myNav").style.height = "100%"; //augstums - 100%
+}
+function closeNav() {
+  document.getElementById("myNav").style.height = "0%"; //augstums - 0%
+}
+</script> <!-- JavaScript funkcijas beigas -->
+</body>
+</html>
