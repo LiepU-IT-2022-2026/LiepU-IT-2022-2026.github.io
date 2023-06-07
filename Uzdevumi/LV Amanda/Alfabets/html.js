@@ -25,7 +25,7 @@ function start(){ //start funkcija
   }
   
   while(random_burts_array.length < 5){//kamēr trūkstošo burtu skaits nav 5
-    rng = getRandomInt(32); //nejauši izvēlas veselu skaitli līdz 32
+    rng = getRandomInt(32); //nejauši izvēlas veselu skaitli līdz *33
     if(!random_burts_array.includes(rng)){ //ja nejaušais skaitlis nav jau "paņemts" šajā funkcijā pirms tam
       random_burts_array.push(rng); //pievieno masīvam
     }
@@ -53,7 +53,7 @@ function start(){ //start funkcija
         hoverClass: 'hovered',
         drop: check
       });
-      $('#cardd_'+alphabet[i]).css("background-image", "url(bildes2/"+alphabet[i]+".jpg)");
+      $('#cardd_'+alphabet[i]).css("background-image", "url(bildes2/placeholder.png)");
       $('#cardd_'+alphabet[i]).css("background-size", "128px");
       j++;
     } else {

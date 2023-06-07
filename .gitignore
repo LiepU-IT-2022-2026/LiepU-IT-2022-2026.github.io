@@ -4,8 +4,11 @@
 fonts/inconsolata.zip
 
 # kad bāze gatava noņemt nākamajām rindiņai "#"
-# /UZMETUMI
-# /gametypes
+/UZMETUMI
+/gametypes
 .src/
 spele.html
 Uzdevumi/Math/Uzdevumu_idejas.png
+/Uzdevumi/Latv_val
+
+/Miskaste
